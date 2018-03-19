@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block title %}Mis Medicamentos{% endblock %}
+{% block content %}
+  <h1>Mis medicamentos</h1>
+  <table>
+    {% for object in object_list %}
+      <tr>
+        <td>{{object.id_medicamento}}</td>
+        <td>{{object.fecha_expedicion}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+{% endblock%}

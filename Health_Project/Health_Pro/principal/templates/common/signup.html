@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock%}
+{% block content %}
+  <h1>Registrate</h2>
+    <form enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      {{userform.as_p}}
+      {{pacienteform.as_p}}
+      <input type ="submit" value="Registrate">
+      <input type="reset" values="Cancel">
+    </form>
+{%endblock%}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> Inicio de sesión </h1>
+
+		{% if user.is_authenticated %}
+
+			<p><h1> Bienvenido {{ user.username }} </h1></p>
+
+			<a href = "/principal/logout_then_login/">Cerrar sesión</a>
+
+		{% else %}
+
+		<form method = "POST">
+		{% csrf_token %}
+
+			<div class = "form_group">
+
+				<label for = "UserName: ">Nombre Usuario</label>
+				<input type = "text" class = "form-control" id = "username" name = "username" placeholder="Usuario">
+
+			</div>
+
+			<div class = "form_group">
+
+				<label for = "Password">Contraseña</label>
+				<input type = "password" class = "form-control" id = "password" name = "password" placeholder="Password">
+
+			</div>
+
+			<button type = "submit" class = "btn btn-primary btn-lg btn-block">Iniciar sesión</button>
+			<button type = "reset" class = "btn btn-warning btn-lg btn-block">Cancelar</button>
+
+		</form>
+
+	{% endif %}
+
+		<!-- <p><a href="/principal/index">Volver</a></p> -->
+    <!-- <p><a href="/pacientes/signup">Registrarse</a></p> -->
+
+{% endblock %}
